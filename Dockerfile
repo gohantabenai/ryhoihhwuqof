@@ -4,4 +4,5 @@ RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/
 
 COPY --from=cloudflare/cloudflared:latest /usr/local/bin/cloudflared /usr/local/bin/cloudflared
 
-CMD ["/bin/sh", "-c", "cloudflared tunnel run --token $TUNNEL_TOKEN"]
+CMD ["/bin/sh", "-c", "cloudflared tunnel run --token $TUNNEL_TOKEN --protocol http2"]
+
